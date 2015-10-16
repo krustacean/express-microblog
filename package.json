@@ -1,0 +1,16 @@
+{
+  "name": "w3_weekend_lab",
+  "version": "0.1.0",
+  "description": "my microblog with a full backend integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Riley Gelwicks",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3"
+  }
+}

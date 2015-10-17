@@ -6,11 +6,13 @@ var mongoose = require("mongoose");
 
 
 app.set('view engine', 'ejs')
+app.use("/static", express.static("public"));
+
 //start the server on port 8080
 app.listen(8080, function (){
   console.log("listening on port 8080");
 });
 
 app.get('/', function(request, response){
-    response.send("we are running");
+    response.render('index');
 })

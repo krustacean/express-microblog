@@ -3,7 +3,7 @@ var app = express();
 var path = require("path");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
-
+var db = require('./models');
 
 app.set('view engine', 'ejs')
 app.use("/static", express.static("public"));
@@ -16,3 +16,15 @@ app.listen(8080, function (){
 app.get('/', function(request, response){
     response.render('index');
 })
+
+app.get("/api/posts", function (req, res){
+ // get blog posts
+ db.Blog.find({}, function(err, posts){
+    if (err) {
+      console.log("Error: Could not find Food db: " + err);
+      return res.sendStatus(400);
+    }
+
+    res.send(posts);
+  });
+});

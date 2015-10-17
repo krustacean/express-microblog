@@ -11,6 +11,6 @@ app.listen(8080, function (){
   console.log("listening on port 8080");
 });
 
-app.get('/', fucntion(request, response){
+app.get('/', function(request, response){
     response.send("we are running");
 })

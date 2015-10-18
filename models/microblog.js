@@ -11,7 +11,7 @@ var BlogSchema = new Schema({
     	type: String,
     	require: true
     },
-    date: {
+    timestamp: {
       type: Number,
       require: true
     }

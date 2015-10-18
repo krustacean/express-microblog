@@ -9,10 +9,7 @@ var D = new Date();
 $(document).ready(function() {
 // add event listeners to page
 
-// delete post when the X is clicked
-  $('.delete').on('click', function(){
-    $(this).parents()[2].remove();
-  });
+
 
   // get input from the title vals and textarea
   $('#submit-button').on('click',function(){
@@ -25,8 +22,11 @@ $(document).ready(function() {
      $('#new-post-title').eq(0).val('');
      $('#new-post').eq(0).val('');
      //apply the event handler to the newly created element
-     $('.delete').on('click', function(){
-       $(this).parents()[2].remove();
-     });
+
   });
+});
+
+// delete post when the X is clicked
+$(document).on('click', '.delete',  function(){
+  $(this).parents()[2].remove();
 });

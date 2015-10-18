@@ -1,95 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Project 0 | Riley Gelwicks</title>
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="static/css/styles.css">
-
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="container">
-      <!-- <div class="blog-header">
-        <h1 class="blog-title">A Simple Web Log</h1>
-        <p class="lead blog-description">Say what you mean, do what you say.</p>
-        <button type="button" name="button" class="btn btn-primary btn-lg">Add Blog Entry</button>
-      </div> -->
-      <div class="jumbotron">
-        <h1>A Simple Web Log!</h1>
-        <p>Write it down before you forget!</p>
-      </div>
-      <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-          <div class="form-group">
-            <label for="new-post-title">Title</label>
-            <input type="text" class="form-control" id="new-post-title" autofocus="true" placeholder="What's this about?">
-          </div>
-          <div class="form-group">
-            <label for="new-post">What would you like to say?</label>
-            <textarea class="form-control" rows="3" id="new-post" placeholder="Please expound here..."></textarea>
-            <br>
-            <button type="submit" class="btn btn-primary btn-xl pull-right" role="button" id="submit-button" aria-label="Center">Submit</button>
-          </div>
-          <br>
-          <hr>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Express MicroBlog</title>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="static/css/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="static/js/script.js"></script>
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">My MicroBlog</a>
         </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar">
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search for stuff">
+            </div>
+            <button type="submit" class="btn btn-default" id="search-button">Search</button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"></a></li>
+
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h3> What's on your mind? <small>Write it down before you forget.</small></h3>
+        <div class="form-group">
+          <label for="new-post-title">Give it a title:</label>
+          <input type="text" class="form-control" id="new-post-title" autofocus="true" placeholder="What's this about?">
+        </div>
+        <div class="form-group">
+          <label for="new-post">And now write some content:</label>
+          <textarea class="form-control" rows="3" id="new-post" placeholder="Tell me more..."></textarea>
+          <br>
+          <button type="submit" class="btn btn-primary btn-xl pull-right" role="button" id="submit-button" aria-label="Center">Submit</button>
+        </div>
+        <br>
+        <hr>
+      </div>
     </div>
-    </div>
-    <div class="container" >
-      <div class="row" id="all-posts">
-        <div class="col-sm-8 col-sm-offset-2">
-          <div class="thumbnail">
+  </div>
+  <div class="container">
+    <div class="row" id="all-posts">
+      <div class="col-sm-8 col-sm-offset-2">
+        <ul class="list-group">
+          <li class="list-group-item">
             <div class="caption">
-              <button type="button" name="del-button" class="btn btn-xs pull-right delete">
-                <span class="glyphicon glyphicon-remove"></span>
-              </button>
+              <div class="button-group pull-right">
+                <button type="button" name="edit-button" class="btn btn-xs edit">
+                  <span class="glyphicon glyphicon-edit"></span>
+                </button>
+                <button type="button" name="share-button" class="btn btn-xs share">
+                  <span class="glyphicon glyphicon-share"></span>
+                </button>
+                <button type="button" name="del-button" class="btn btn-xs delete">
+                  <span class="glyphicon glyphicon-remove"></span>
+                </button>
+              </div>
               <h3>Sample Post 1</h3>
               <p>Welcome to your simple web log, this is your first post.</p>
               <p><small><i>Written on 10/12/2015</i></p></small>
             </div>
-          </div>
-        </div>
-        <div class="col-sm-8 col-sm-offset-2">
-          <div class="thumbnail">
-            <div class="caption">
-              <button type="button" name="button" class="btn btn-xs pull-right delete">
-                <span class="glyphicon glyphicon-remove"></span>
-              </button>
-              <h3>Sample Post 2</h3>
-              <p>Delete posts by clicking the <span class="glyphicon glyphicon-remove"></span> on the top right of each post.</p>
-              <p><small><i>Written 10/11/2015</i></small></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-8 col-sm-offset-2">
-          <div class="thumbnail">
-            <div class="caption">
-              <button type="button" name="button" class="btn btn-xs pull-right delete">
-                <span class="glyphicon glyphicon-remove"></span>
-              </button>
-              <h3>Sample Post 3</h3>
-              <p>All of your posts will appear from newest to oldest.</p>
-              <p><small><i>Written on 10/10/2015</i></small></p>
-            </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </div>
-    </div>
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="static/js/script.js"></script>
-  </body>
+  </div>
+</body>
 </html>

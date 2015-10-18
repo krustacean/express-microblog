@@ -66,10 +66,11 @@
     </div>
   </div>
   <div class="container">
-    <div class="row" id="all-posts">
+    <div class="row" >
       <div class="col-sm-8 col-sm-offset-2">
-        <ul class="list-group">
+        <ul class="list-group" id="all-posts">
           <li class="list-group-item">
+            <% for (var i=0; i<posts.length; i++) { %>
             <div class="caption">
               <div class="button-group pull-right">
                 <button type="button" name="edit-button" class="btn btn-xs edit">
@@ -82,10 +83,11 @@
                   <span class="glyphicon glyphicon-remove"></span>
                 </button>
               </div>
-              <h3>Sample Post 1</h3>
-              <p>Welcome to your simple web log, this is your first post.</p>
-              <p><small><i>Written on 10/12/2015</i></p></small>
+              <h3><%= posts[i].title %></h3>
+              <p><%= posts[i].content %></p>
+              <p><small><i>Written on <%= posts[i].timestamp %></i></p></small>
             </div>
+            <% } %>
           </li>
         </ul>
       </div>

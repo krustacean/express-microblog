@@ -13,9 +13,16 @@ app.listen(8080, function (){
   console.log("listening on port 8080");
 });
 
-app.get('/', function(request, response){
-    response.render('index');
-})
+//set up app routes
+app.get("/", function (req, res){
+  db.Blog.find({}, function(err, posts){
+     if (err) {
+       console.log("Error: Could not find Food db: " + err);
+       return res.sendStatus(400);
+     }
+   res.render('index', {posts: posts});
+ });
+});
 
 app.get("/api/posts", function (req, res){
  // get blog posts

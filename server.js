@@ -55,6 +55,9 @@ app.post("/api/posts", function (req, res){
 });
 
 // A route to update a single blog post: PUT /api/posts/:id
+app.put('/api/posts/:id', function (req, res) {
+  res.send('put request to update a single blog post');
+});
 
 // A route to delete a single blog post: DELETE /api/posts/:id
 app.delete("/api/posts/:id", function (req, res){

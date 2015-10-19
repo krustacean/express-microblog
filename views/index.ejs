@@ -4,20 +4,25 @@
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
         <h3> What's on your mind? <small>Write it down before you forget.</small></h3>
-        <div class="form-group">
-          <label for="new-post-title">Give it a title:</label>
-          <input type="text" class="form-control" id="new-post-title" autofocus="true" placeholder="What's this about?">
-        </div>
-        <div class="form-group">
-          <label for="new-post">And now write some content:</label>
-          <textarea class="form-control" rows="2" id="new-post" placeholder="Tell me more..."></textarea>
+          <form class="form-group" id="new-blog">
+            <label for="title">Give it a title:</label>
+            <input name="title" type="text" class="form-control" id="post-title" placeholder="What's this about?">
+            <label for="content">And now write some content:</label>
+            <input name="content" type="text" class="form-control" id="post-content" placeholder="Tell us more">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        <!-- <div class="form-group">
+
+          <input type="text" class="form-control" id="new-post-title" autofocus="true" placeholder="What's this about?" name:"title">
+
+          <input type="text" class="form-control" rows="2" id="new-post" placeholder="Tell me more..." name:"content"></input>
           <br>
           <button type="submit" class="btn btn-primary btn-xl pull-right" role="button" id="submit-button" aria-label="Center">Submit</button>
-        </div>
+        </div> -->
         <br>
         <hr>
       </div>
     </div>
-  </div>
+
 <% include postlist %>
 <% include footer %>

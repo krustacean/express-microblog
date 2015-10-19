@@ -1,7 +1,7 @@
 console.log('this is the right js file');
 
 
-var D = new Date();
+var d = Date.now();
 
 $(document).ready(function() {
   // add event listeners to page
@@ -31,10 +31,16 @@ $(document).on('click', '.delete',  function(){
 });
 
 function createHTML(response){
-  var postHtml = '<div class="col-sm-8 col-sm-offset-2"><div class="thumbnail">'
-  + '<div class="caption"><button type="button" name="button" class="btn btn-xs pull-right delete">'
-  + '<span class="glyphicon glyphicon-remove"></span></button>'
-  + '<h3> '
+  var date = new Date(response.timestamp);
+  var postHtml = '<li class="list-group-item"><div class="caption"><div class="button-group pull-right">',
+                +'<button type="button" name="edit-button" class="btn btn-xs edit" data-id="' + response.id +'">',
+                +'<span class="glyphicon glyphicon-edit"></span></button>',
+                +'<button type="button" name="share-button" class="btn btn-xs share" data-id="' + response.id +'">',
+                +'<a href="/api/posts/<%= posts[i].id %>"><span class="glyphicon glyphicon-share"></span></a>',
+                +'</button><button type="button" name="del-button" class="btn btn-xs delete" data-id="' + response.id +'">',
+                +'<span class="glyphicon glyphicon-remove"></span></button></div><h3>' + response.title + '</h3>',
+                +'<p>' + response.content + '</p><%%><p><small><i>' + date.toLocaleDateString() + '</i>',
+                +'</p></small></div></li>';
 }
 
 

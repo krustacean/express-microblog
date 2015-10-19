@@ -1,4 +1,4 @@
 var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/microblog");
 
-module.exports.Blog = require("./microblog.js");
+module.exports.Post = require("./microblog.js");

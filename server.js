@@ -15,7 +15,7 @@ app.listen(8080, function (){
 
 //set up app routes
 app.get("/", function (req, res){
-  db.Blog.find({}, function(err, posts){
+  db.Post.find({}, function(err, posts){
      if (err) {
        console.log("Error: Could not find Food db: " + err);
        return res.sendStatus(400);
@@ -27,7 +27,7 @@ app.get("/", function (req, res){
 // route to read all blog posts: GET /api/posts
 app.get("/api/posts", function (req, res){
  // get blog posts
- db.Blog.find({}, function(err, posts){
+ db.Post.find({}, function(err, posts){
     if (err) {
       console.log("Error: Could not find Food db: " + err);
       return res.sendStatus(400);
@@ -40,7 +40,7 @@ app.get("/api/posts", function (req, res){
 // A route to read one blog post: GET /api/posts/:id
 app.get('/api/posts/:id', function(req, res){
   postID = req.params.id;
-  db.Blog.find({_id:postID}, function(err, result){
+  db.Post.find({_id:postID}, function(err, result){
   res.json(result);
   });
 });
@@ -52,7 +52,7 @@ app.get('/api/posts/:id', function(req, res){
 app.delete("/api/posts/:id", function (req, res){
   // set the value of the id
   var targetId = req.params.id;
-  db.Blog.findOneAndRemove({_id:targetId}, function(err,result){
+  db.Post.findOneAndRemove({_id:targetId}, function(err,result){
   res.json(result);
   });
 });

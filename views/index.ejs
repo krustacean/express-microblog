@@ -69,8 +69,8 @@
     <div class="row" >
       <div class="col-sm-8 col-sm-offset-2">
         <ul class="list-group" id="all-posts">
+          <% for (var i=0; i<posts.length; i++) { %>
           <li class="list-group-item">
-            <% for (var i=0; i<posts.length; i++) { %>
             <div class="caption">
               <div class="button-group pull-right">
                 <button type="button" name="edit-button" class="btn btn-xs edit">
@@ -87,8 +87,8 @@
               <p><%= posts[i].content %></p>
               <p><small><i>Written on <%= posts[i].timestamp %></i></p></small>
             </div>
-            <% } %>
           </li>
+          <% } %>
         </ul>
       </div>
     </div>

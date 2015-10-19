@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row" >
+    <div class="col-sm-8 col-sm-offset-2">
+      <ul class="list-group" id="all-posts">
+        <% for (var i=0; i<posts.length; i++) { %>
+        <li class="list-group-item">
+          <div class="caption">
+            <div class="button-group pull-right">
+              <button type="button" name="edit-button" class="btn btn-xs edit" data-id="<%= posts[i].id %>">
+                <span class="glyphicon glyphicon-edit"></span>
+              </button>
+              <button type="button" name="share-button" class="btn btn-xs share" data-id="<%= posts[i].id %>">
+                <a href="/api/posts/<%= posts[i].id %>"><span class="glyphicon glyphicon-share"></span></a>
+              </button>
+              <button type="button" name="del-button" class="btn btn-xs delete" data-id="<%= posts[i].id %>">
+                <span class="glyphicon glyphicon-remove"></span>
+              </button>
+            </div>
+            <h3><%= posts[i].title %></h3>
+            <p><%= posts[i].content %></p>
+            <%var date = new Date(posts[i].timestamp)%>
+            <p><small><i><%= date.toLocaleDateString() %> </i></p></small>
+          </div>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</div>

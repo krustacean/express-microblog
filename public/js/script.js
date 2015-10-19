@@ -19,7 +19,7 @@ $(document).ready(function() {
      // prepend html into post list
      $('#all-posts').prepend( postHtml + $title + '</h3>' + '<p>' + $post + '</p>' + dHtml + '</div></div></div>');
      //clear forms
-     $('#new-post-title').eq(0).val('');
+     $('#new-post-title')reset();
      $('#new-post').eq(0).val('');
      //apply the event handler to the newly created element
 
@@ -28,5 +28,22 @@ $(document).ready(function() {
 
 // delete post when the X is clicked
 $(document).on('click', '.delete',  function(){
-  $(this).parents()[2].remove();
+  deletePost(this);
+  //$(this).parents()[2].remove();
 });
+
+function deletePost(context) {
+  console.log('context in deleteFood: ', context);
+  // context is the button that was clicked
+  var postID = $(context).data().id;
+  console.log(postID);
+  $.ajax({
+    url: '/api/posts/' + postID,
+    type: 'DELETE',
+    success: function(response) {
+      // once successful, remove food from the DOM
+      console.log('removed' + response)
+      $(context).closest('li').remove();
+    }
+  });
+}

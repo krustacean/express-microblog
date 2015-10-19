@@ -41,7 +41,7 @@ app.get("/api/posts", function (req, res){
 app.get('/api/posts/:id', function(req, res){
   postID = req.params.id;
   db.Post.find({_id:postID}, function(err, result){
-  res.json(result);
+  res.render('post', {posts:result})
   });
 });
 // A route to create a new blog post: POST /api/posts
@@ -56,6 +56,8 @@ app.post("/api/posts", function (req, res){
 
 // A route to update a single blog post: PUT /api/posts/:id
 app.put('/api/posts/:id', function (req, res) {
+  var postID = req.params.id;
+
   res.send('put request to update a single blog post');
 });
 
@@ -64,6 +66,7 @@ app.delete("/api/posts/:id", function (req, res){
   // set the value of the id
   var targetId = req.params.id;
   db.Post.findOneAndRemove({_id:targetId}, function(err,result){
-  res.json(result);
+    if (err) { return console.log(err); }
+    res.json(result);
   });
 });

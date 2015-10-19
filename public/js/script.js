@@ -16,7 +16,7 @@ $(document).ready(function() {
     console.log($(this).serialize())
     $.post("/api/posts", $(this).serialize(), function(response){
       console.log('posted response: ' + response)
-      var newPost = response.stringify();
+      var newPost = response;
       // clear new food form
       var html = createHTML(newPost);
       $("#all-posts").prepend(html);

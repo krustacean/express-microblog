@@ -45,6 +45,14 @@ app.get('/api/posts/:id', function(req, res){
   });
 });
 // A route to create a new blog post: POST /api/posts
+app.post("/api/posts", function (req, res){
+  var newPost = req.body;
+  db.Post.create(newPost, function(err, newPost){
+    if (err) { return console.log(err); }
+    console.log(newPost);
+  });
+  res.json(newPost);
+});
 
 // A route to update a single blog post: PUT /api/posts/:id
 

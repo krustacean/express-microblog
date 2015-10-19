@@ -7,6 +7,7 @@ var db = require('./models');
 
 app.set('view engine', 'ejs')
 app.use("/static", express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //start the server on port 8080
 app.listen(8080, function (){
@@ -47,6 +48,7 @@ app.get('/api/posts/:id', function(req, res){
 // A route to create a new blog post: POST /api/posts
 app.post("/api/posts", function (req, res){
   var newPost = req.body;
+  console.log(newPost);
   db.Post.create(newPost, function(err, newPost){
     if (err) { return console.log(err); }
     console.log(newPost);

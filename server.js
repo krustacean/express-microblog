@@ -60,7 +60,15 @@ app.post("/api/posts", function (req, res){
 app.put('/api/posts/:id', function (req, res) {
   var postID = req.params.id;
 
-  res.send('put request to update a single blog post');
+  // find list in db by id
+  List.findOne({_id: postID}, function (err, currentpost) {
+    // find todo embedded in list
+    // update todo text and completed with data from request body
+    currentpost.content = req.body.content;
+    currentpost.save(function (err, currentpost) {
+      res.json(currentpost);
+    });
+  });
 });
 
 // A route to delete a single blog post: DELETE /api/posts/:id

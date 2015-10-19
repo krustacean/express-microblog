@@ -24,6 +24,7 @@ app.get("/", function (req, res){
  });
 });
 
+// route to read all blog posts: GET /api/posts
 app.get("/api/posts", function (req, res){
  // get blog posts
  db.Blog.find({}, function(err, posts){
@@ -32,6 +33,26 @@ app.get("/api/posts", function (req, res){
       return res.sendStatus(400);
     }
 
-    res.send(posts);
+    res.json(posts);
+  });
+});
+
+// A route to read one blog post: GET /api/posts/:id
+app.get('/api/posts/:id', function(req, res){
+  postID = req.params.id;
+  db.Blog.find({_id:postID}, function(err, result){
+  res.json(result);
+  });
+});
+// A route to create a new blog post: POST /api/posts
+
+// A route to update a single blog post: PUT /api/posts/:id
+
+// A route to delete a single blog post: DELETE /api/posts/:id
+app.delete("/api/posts/:id", function (req, res){
+  // set the value of the id
+  var targetId = req.params.id;
+  db.Blog.findOneAndRemove({_id:targetId}, function(err,result){
+  res.json(result);
   });
 });

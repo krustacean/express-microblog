@@ -11,10 +11,9 @@ var PostSchema = new Schema({
     	type: String,
     	require: true
     },
-    timestamp: {
-      type: Number,
-      require: true
-    }
+    timestamp : {
+      type : Date,
+      default: Date.now }
 });
 
 var Post = mongoose.model('Post', PostSchema);
